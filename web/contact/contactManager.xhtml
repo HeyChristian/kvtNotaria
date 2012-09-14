@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+
+
+        <f:facet name="first">
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+
+            <title>Record Notarial</title>
+        </f:facet>
+
+        <h:outputStylesheet library="css" name="default.css"/>
+
+
+
+    </h:head>
+
+    <h:body>
+        <h:form id="frmClient" prependId="false" >
+
+            <h:panelGrid columns="2" columnClasses="colTop,colBottom">
+
+                <h:panelGrid columnClasses="colTop">
+
+                    <h:outputLabel value="Name:" />
+                    <p:inputText style="width:200px" value="#{clientImp.name}" />
+
+                    <h:outputLabel value="Last Name:" />
+                    <p:inputText style="width:200px" value="#{clientImp.lastName}" />
+
+                    <h:outputLabel value="Second Last Name:" />
+                    <p:inputText style="width:200px" value="#{clientImp.secondLastName}" />
+
+                    <h:outputLabel value="Gender:" />
+                    <p:selectOneMenu style="width:210px" value="#{clientImp.gender}" >
+                        <f:selectItem itemValue="male" itemLabel="Male" />
+                        <f:selectItem itemValue="female" itemLabel="Female" />
+                        <f:selectItem itemValue="not specified" itemLabel="Not Specified" />
+
+                    </p:selectOneMenu>
+
+
+                    <h:outputLabel value="Social Security:" />
+
+                    <p:inputMask mask="999-99-9999" style="width:200px" value="#{clientImp.socialSecurity}" />
+
+                    <h:outputLabel value="Marital Status:"  />
+                    <p:selectOneMenu style="width:210px" value="#{clientImp.maritalStatus}" >
+
+                        <f:selectItem itemValue="mc" itemLabel="Married, with children" />
+                        <f:selectItem itemValue="mnc" itemLabel="Married, no children" />
+                        <f:selectItem itemValue="e" itemLabel="Engaged" />
+                        <f:selectItem itemValue="snm" itemLabel="Single, never married" />
+                        <f:selectItem itemValue="sfm" itemLabel="Single, formerly married" />
+
+
+                    </p:selectOneMenu>
+
+
+                </h:panelGrid>
+                <h:panelGrid columnClasses="colBottom">
+                    <p:commandButton id="btnSaveClient" value="Save Client" actionListener="#{clientImp.saveClient}"  />
+                    <p:commandButton value="Cancel" onclick="alert('Click Event')" />
+                </h:panelGrid>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

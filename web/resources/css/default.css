@@ -1,0 +1,22 @@
+/* 
+    Document   : default
+    Created on : Sep 13, 2012, 2:17:53 AM
+    Author     : pollo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.ui-widget,.ui-widget .ui-widget {
+    font-size: 90% !important;
+}
+.colTop{
+    vertical-align: top;
+}
+.colBottom{
+    vertical-align:bottom;
+    text-align: right;
+}
+/*
+.ui-widget { font-family: Verdana,Arial,sans-serif; font-size: 1.1em; }
+.ui-widget .ui-widget { font-size: 1em; }
+*/

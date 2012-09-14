@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <f:view >
+
+        <h:head>
+
+
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+
+                <title>Record Notarial</title>
+            </f:facet>
+
+            <h:outputStylesheet library="css" name="default.css"/>
+
+
+
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit rendered="false" position="north" size="30" resizable="false" closable="false" collapsible="true">
+
+                </p:layoutUnit>
+
+                <p:layoutUnit  position="south" size="530" closable="true" collapsible="true">
+
+
+                    <p:tabView orientation="top" activeIndex="1" style="width:100%">
+
+                        <p:tab title="Case #1" ><p:spacer width="800" height="450" /></p:tab>
+                        <p:tab title="Case #2" >
+
+
+
+                        </p:tab>
+                        <p:tab title="Case #3" ></p:tab>
+                        <p:tab title="Case #4" ></p:tab>
+                        <p:tab title="Case #5" ></p:tab>
+                        <p:tab title="+" ></p:tab>
+                    </p:tabView>
+
+
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="200" header="Menu" collapsible="true">
+
+                    <p:panel header="Seach" style="width:99%; border: none" collapsed="true" toggleOrientation="vertical" toggleTitle="Search" toggleable="true" >
+                        <p:selectOneMenu style="width:99%" >
+
+                            <f:selectItem itemLabel="Contact" />
+                            <f:selectItem itemLabel="Case" />
+                            <f:selectItem itemLabel="References" />
+                            <f:selectItem itemLabel="[SELECT ONE]" />
+                        </p:selectOneMenu>
+                        <br/><br/>
+                        <p:inputText style="width:94%"  />
+                        <p:separator />
+                        <p:commandButton value="OK" style="width:72px" />
+                        <p:commandButton value="Cancel" style="width:72px" />
+                    </p:panel>
+
+                    <p:menu style="width:100%; border:none" >
+
+
+                        <p:submenu label="Casos" icon="ui-icon ui-icon-pencil" >
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+                        <p:submenu label="Finanzas" icon="ui-icon ui-icon-pencil">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+
+
+                        </p:submenu>
+
+                        <p:submenu label="Reportes" icon="ui-icon ui-icon-pencil">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <!--ui:include src="/menus/menubar.xhtml"  /-->
+                    <h:form>
+                        <p:commandButton value="TEST RECORDIMP" actionListener="#{recordImp.startRecord}" />
+                        <p:commandButton value="TEST ACCOUNTIMP" actionListener="#{accountImp.show}" />
+
+                    </h:form>
+
+
+                    <p:separator/>
+
+                    <h:form>
+                        <ui:remove>
+                        <p:log />
+                        <h:outputLabel id="lblname" value="Name:" />
+                        <p:inputText id="txtname" style="width:200px" value="#{clientImp.name}" />
+                        <p:watermark for="txtname" value="Enter a Name" />
+
+                        <h:outputLabel id="lbllastname" value="Last Name:" />
+                        <p:inputText id="txtlastname" style="width:200px" value="#{clientImp.lastName}" />
+                        <p:watermark for="txtlastname" value="Enter a last name" />
+                        <h:outputLabel id="lblsecondlastname" value="Second Last Name:" />
+                        <p:inputText id="txtsecondlastname" style="width:200px" value="#{clientImp.secondLastName}" />
+                        <p:watermark for="txtsecondlastname" value="Enter a second last name" />
+                        </ui:remove>
+
+                        <p:commandButton value="Save Client" actionListener="#{clientImp.saveClient}"  />
+
+
+
+                    </h:form>
+
+
+
+
+                    <ui:remove>
+                        <h:form id="frmClient"  >
+
+
+                            <h:panelGrid columns="2" style="width: 100%" columnClasses="colTop,colTop" >
+
+                                <h:panelGrid style="width:75%">
+
+
+                                    <h:panelGrid columns="2" columnClasses="colTop,colBottom">
+
+                                        <h:panelGrid columnClasses="colTop">
+
+                                            <h:outputLabel value="Name:" />
+                                            <p:inputText id="txtname1" style="width:200px" value="#{clientImp.name}" />
+                                            <p:watermark for="txtname1" value="Enter a Name" />
+
+                                            <h:outputLabel value="Last Name:" />
+                                            <p:inputText id="txtlastname1" style="width:200px" value="#{clientImp.lastName}" />
+
+                                            <h:outputLabel value="Second Last Name:" />
+                                            <p:inputText id="txtsecondlastname1" style="width:200px" value="#{clientImp.secondLastName}" />
+
+                                            <!--h:outputLabel value="Gender:" />
+                                            <p:selectOneMenu style="width:210px" value="#{clientImp.gender}" >
+                                                <f:selectItem itemValue="male" itemLabel="Male" />
+                                                <f:selectItem itemValue="female" itemLabel="Female" />
+                                                <f:selectItem itemValue="not specified" itemLabel="Not Specified" />
+    
+                                            </p:selectOneMenu>
+    
+                                            <ui:remove>
+                                                <h:outputLabel value="Social Security:" />
+    
+                                                <p:inputMask mask="999-99-9999" style="width:200px" value="#{clientImp.socialSecurity}" />
+                                            </ui:remove>
+                                            <h:outputLabel value="Marital Status:"  />
+                                            <p:selectOneMenu style="width:210px" value="#{clientImp.maritalStatus}" >
+    
+                                                <f:selectItem itemValue="mc" itemLabel="Married, with children" />
+                                                <f:selectItem itemValue="mnc" itemLabel="Married, no children" />
+                                                <f:selectItem itemValue="e" itemLabel="Engaged" />
+                                                <f:selectItem itemValue="snm" itemLabel="Single, never married" />
+                                                <f:selectItem itemValue="sfm" itemLabel="Single, formerly married" />
+    
+    
+                                            </p:selectOneMenu-->
+
+
+                                        </h:panelGrid>
+                                        <h:panelGrid columnClasses="colBottom">
+                                            <p:commandButton id="btnSaveClient" value="Save Client" actionListener="#{clientImp.saveClient}"  />
+                                            <p:commandButton value="Cancel" actionListener="#{recordImp.startRecord}"/>
+                                        </h:panelGrid>
+                                    </h:panelGrid>
+
+
+                                </h:panelGrid>
+
+
+                                <h:panelGrid columns="2" style="width:25%">
+
+
+
+                                    <p:panel header="..." id="panel" widgetVar="panel" style="width:100%">
+                                        <ui:remove>
+                                            <f:facet name="options">  
+                                                <p:menu>  
+                                                    <p:submenu label="Settings">  
+                                                        <p:menuitem value="Toggle" url="#" icon="ui-icon-newwin" onclick="panel.toggle()"/>  
+                                                        <p:menuitem value="Remove" url="#" icon="ui-icon-close" onclick="panel.close()"/>  
+                                                    </p:submenu>  
+                                                </p:menu>  
+                                            </f:facet> 
+                                        </ui:remove>
+                                        <f:facet name="actions">  
+                                            <h:commandLink styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default">  
+                                                <h:outputText styleClass="ui-icon ui-icon-help" />  
+                                            </h:commandLink>  
+                                            <h:commandLink styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default">  
+                                                <h:outputText styleClass="ui-icon ui-icon-star" />  
+                                            </h:commandLink>  
+                                        </f:facet>  
+
+                                        <h:graphicImage library="images" name="man.png" />
+
+                                    </p:panel>
+
+                                </h:panelGrid>
+
+                            </h:panelGrid>
+                        </h:form>
+
+                    </ui:remove>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+
